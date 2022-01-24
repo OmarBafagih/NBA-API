@@ -1,15 +1,11 @@
 //requirements
 const express = require('express');
 const router = express.Router();
-//const rp = require('request');
-const url = '';
 const cheerio = require('cheerio');
-//const request = require('request');
-const { response } = require('express');
-
 const axios = require("axios")
-//const cheerio = require("cheerio")
+//const { response } = require('express');
 
+const url = 'https://www.espn.com/nba/scoreboard';
 
 
 //routing
@@ -19,21 +15,19 @@ router.get('/', getLiveGames);
 function getLiveGames(req, res, next){
     res.format({
         'text/html': ()=>{
-            
-            async function fetchHTML(url) {
-                const { data } = await axios.get(url)
-                return cheerio.load(data)
-                const $ = await fetchHTML("https://www.espn.com/nba/scoreboard");
-              }
+            axios(url)
+                .then(response => {
+                    const html = response.data;
+                    const $ = cheerio.load(html);
+                    $('.ScoreboardScoreCell__Competitors', html).each(function(){
+                        console.log($(this).text());
+
+                    });
+                    //console.log(html);
+                })
+          
               
-              
-              
-              
-              // Print the full HTML
-              console.log(`Site HTML: ${$.html()}\n\n`)
-              
-              // Print some specific page content
-              console.log(`First h1 tag: ${$('h1').text()}`)
+           
             /*request(url, (error, res, html)=>{
 
                 
