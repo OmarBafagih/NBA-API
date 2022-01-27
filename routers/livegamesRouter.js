@@ -41,33 +41,7 @@ function getLiveGames(req, res, next){
 
                 }).catch(err => console.log(err));
                ;
-            /*request(url, (error, res, html)=>{
-
-                
-                
-                if(!error && res.statusCode == 200){
-                    const $ = cheerio.load(html);
-                    //console.log(html);
-                    let teams = [];
-                    $('ScoreboardScoreCell pa4 nba ScoreboardScoreCell--post ScoreboardScoreCell--tabletPlus').each((i, el)=>{
-                        
-                        //const live = $(el).find('.LiveIcon_live__2F3Oq my-1').text();
-                        //console.log(live);
-                        const teamName = $(el).find('ScoreCell__TeamName ScoreCell__TeamName--shortDisplayName truncate db').text();
-                        console.log(teamName);
-                        //if(teamName !== ''){
-                           teams.push(teamName)
-                       // }
-                        
-                        
-                        //console.log(i);
-                       
-                    });
-                    console.log(teams);
-                
-                }
-            });*/
-
+           
             res.set('Content-Type', 'text/html');
             res.render('livegames');
 

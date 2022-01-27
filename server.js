@@ -46,13 +46,6 @@ app.get('/', function (req, res){
     res.render('index');
   });
 
-
-
-
-
-
-
-
  
 app.listen(PORT);
 console.log("Server listening on port 3000");
