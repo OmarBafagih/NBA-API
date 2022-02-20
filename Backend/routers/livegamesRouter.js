@@ -27,13 +27,13 @@ function getLiveGames(req, res, next){
                         games.push({game});
                     });
                     $('.TeamName', html).each(function(){
-                        teamNames.push($(this).text());
+                        teamNames.push($(this).text().replace(/\s\s+/g, ' ').replace("NBAt", ""));
                     });
                     
                     let teamcount = 0;
                     for(let i = 0; i < games.length; i++){
                         games[i].away = teamNames[teamcount];
-                        teamcount += 1
+                        teamcount += 1;
                         games[i].home = teamNames[teamcount];
                         teamcount += 1;
                     }
@@ -43,7 +43,9 @@ function getLiveGames(req, res, next){
                ;
            
             res.set('Content-Type', 'text/html');
-            res.render('livegames');
+            res.json({
+                'livegames':1
+            });
 
         },
         'application/json': ()=>{
