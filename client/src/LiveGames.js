@@ -17,7 +17,7 @@ export default class LiveGames extends Component {
   render() {
     return (
       <div>
-        <h1>Very poggers</h1>
+        <h1>NBA LIVE GAMES</h1>
         <button>get live NBA games: {this.state.liveGames}</button>
 
       </div>
