@@ -1,12 +1,18 @@
 import logo from './logo.svg';
 import './App.css';
-import Pog from './Pog';
+import LiveGames from './LiveGames';
+import ParticlesBackground from './ParticlesBackground';
 function App() {
   return (
     <div className="App">
+      <ParticlesBackground/>
+      
       <header className="App-header">
-        <Pog/>
+        <LiveGames/>
+        
       </header>
+      
+      
     </div>
   );
 }

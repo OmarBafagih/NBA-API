@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from "axios";
 
-export default class Pog extends Component {
+export default class LiveGames extends Component {
     constructor(){
         super();
         this.state = {
@@ -11,6 +11,7 @@ export default class Pog extends Component {
     componentDidMount = ()=>{
         axios.get("/livegames").then(response => {
           console.log(response.data.livegames);
+          console.log(response);
         });
     }
   render() {
